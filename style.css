@@ -76,6 +76,7 @@
 #play {
     border: 1px solid #000000;
     background-color: #fff;
+    color: #000000;
     padding: 10px 20px;
     position: absolute;
     left: 50%;
@@ -86,3 +87,7 @@
 
 }
 
+#play:hover {
+    background-color: #000000;
+    color: #fff;
+}
