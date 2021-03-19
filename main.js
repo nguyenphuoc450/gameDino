@@ -3,6 +3,12 @@ let cacTus = document.querySelector('#cactus');
 let btnPlay = document.querySelector('#play');
 let score = 0;
 
+window.addEventListener("keydown",function(event){
+    if(event.key == "ArrowUp" || event.keyCode ==32)
+    {
+        jump();
+    }
+});
 
 function jump() {
     if(dino.classList != 'animate-jump') {
@@ -14,6 +20,7 @@ function jump() {
         dino.classList.remove('animate-jump');
     },500);
 }
+
 
 let checkDead = setInterval(function(){
     let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
