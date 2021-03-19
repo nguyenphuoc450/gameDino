@@ -1,11 +1,14 @@
 let dino = document.querySelector('#dino');
 let cacTus = document.querySelector('#cactus');
 let btnPlay = document.querySelector('#play');
+let score = 0;
 
 
 function jump() {
     if(dino.classList != 'animate-jump') {
         dino.classList.add('animate-jump');
+        score++;
+        document.querySelector('#score').innerHTML = `Điểm : ${score}`;
     }
     setTimeout(function(){
         dino.classList.remove('animate-jump');
@@ -20,11 +23,14 @@ let checkDead = setInterval(function(){
         alert("bạn đã thua");
         btnPlay.style.display ='inline-block';
     }
+
 }, 10);
 
 btnPlay.addEventListener('click',function(event){
     btnPlay.style.display ='none';
     cacTus.classList.add('animate-cacTus');
     event.stopPropagation();
+    score = 0;
+    document.querySelector('#score').innerHTML = `Điểm : ${score}`;
 });
 
