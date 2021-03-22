@@ -13,8 +13,6 @@ window.addEventListener("keydown",function(event){
 function jump() {
     if(dino.classList != 'animate-jump') {
         dino.classList.add('animate-jump');
-        score++;
-        document.querySelector('#score').innerHTML = `Điểm : ${score}`;
     }
     setTimeout(function(){
         dino.classList.remove('animate-jump');
@@ -32,6 +30,15 @@ let checkDead = setInterval(function(){
     }
 
 }, 10);
+
+let scoreUp = setInterval(function() {
+    let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
+    let cacTusLeft = parseInt(window.getComputedStyle(cacTus).getPropertyValue("left"));
+    if(cacTusLeft >10 && dinoTop < 150 ){
+        score++;
+        document.querySelector('#score').innerHTML = `Điểm : ${score}`;
+    }
+},500);
 
 btnPlay.addEventListener('click',function(event){
     btnPlay.style.display ='none';
