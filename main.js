@@ -23,7 +23,7 @@ function jump() {
 let checkDead = setInterval(function(){
     let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
     let cacTusLeft = parseInt(window.getComputedStyle(cacTus).getPropertyValue("left"));
-    if(cacTusLeft <=10 && dinoTop >=150 ){
+    if(cacTusLeft < 50 && dinoTop >= 150 ){
         cacTus.classList.remove('animate-cacTus');
         alert("bạn đã thua");
         btnPlay.style.display ='inline-block';
@@ -34,11 +34,11 @@ let checkDead = setInterval(function(){
 let scoreUp = setInterval(function() {
     let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
     let cacTusLeft = parseInt(window.getComputedStyle(cacTus).getPropertyValue("left"));
-    if(cacTusLeft >10 && dinoTop < 150 ){
+    if(cacTusLeft < 50 && dinoTop <= 150 ){
         score++;
         document.querySelector('#score').innerHTML = `Điểm : ${score}`;
     }
-},500);
+},100);
 
 btnPlay.addEventListener('click',function(event){
     btnPlay.style.display ='none';
@@ -47,4 +47,6 @@ btnPlay.addEventListener('click',function(event){
     score = 0;
     document.querySelector('#score').innerHTML = `Điểm : ${score}`;
 });
+
+
 
